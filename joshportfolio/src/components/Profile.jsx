@@ -76,7 +76,7 @@ const Profile = () => {
                     <div className="px-5 py-2">
                     <a
                   className="text-sm text-gray-500 hover:text-blue-600"
-                  href="/src/assets/JoshHutchison.pdf"
+                  href="/JoshHutchison.pdf"
                   tager="_blank"
                   download
                 >
