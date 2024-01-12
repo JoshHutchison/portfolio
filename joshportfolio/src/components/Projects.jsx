@@ -75,10 +75,10 @@ const Projects = () => {
       <h2 className="text-4xl mb-4">Projects</h2>
       <div className="flex flex-wrap justify-center items-start gap-4">
         {projectData.map((project, index) => (
-          <div key={index} className="flex flex-col items-center">
-            <h3 className="mb-2">{project.name}</h3>
+          <div key={index} className="flex flex-col items-center ">
+            <h3 className="mb-2 text-xl">{project.name}</h3>
 
-            <div className="w-64 h-40 relative">
+            <div className="w-96 h-60 relative">
               <img
                 src={project.imageSrc}
                 alt={project.name}
