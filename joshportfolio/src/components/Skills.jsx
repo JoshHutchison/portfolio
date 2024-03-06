@@ -24,11 +24,8 @@ const skills = [
   { name: 'Docker', link: 'https://www.docker.com/', icon: 'docker-colored.svg' },
   { name: 'Linux', link: 'https://www.linux.org', icon: 'linux-colored.svg' },
   { name: 'MacOS', link: 'https://apple.com', icon: 'macos.svg' },
-  { name: 'HTML', link: 'https://apple.com', icon: 'html5-colored.svg' },
-  { name: 'CSS', link: 'https://apple.com', icon: 'css3-colored.svg' },
-  { name: 'Postgres', link: 'https://apple.com', icon: 'postgresql-colored.svg' },
-  { name: 'Node', link: 'https://apple.com', icon: 'nodejs-colored.svg' },
 
+  
 ];
 
 const Skills = () => {

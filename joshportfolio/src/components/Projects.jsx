@@ -29,7 +29,7 @@ const Projects = () => {
         { label: 'React', icon: 'react', color: 'blue' },
         { label: 'Python', icon: 'python', color: 'blue' },
         { label: 'Django', icon: 'django', color: 'blue' },
-        { label: 'Postgres', icon: 'postgresql', color: 'blue' },
+        { label: 'PostgreSQL', icon: 'postgresql', color: 'blue' },
       ],
     },
     {
@@ -39,8 +39,8 @@ const Projects = () => {
       imageSrc: gamingDealsGif,
       description: 'A Gaming Deals Website, offering a comprehensive list of gaming discounts and deals from various sources.',
       technologies: [
-        { label: 'HTML', icon: 'html5', color: 'blue' },
-        { label: 'CSS', icon: 'css3', color: 'blue' },
+        { label: 'HTML5', icon: 'html5', color: 'blue' },
+        { label: 'CSS3', icon: 'css3', color: 'blue' },
         { label: 'JavaScript', icon: 'javascript', color: 'blue' },
         { label: 'MongoDB', icon: 'mongodb', color: 'blue' },
         { label: 'Express', icon: 'express', color: 'black' },
@@ -54,7 +54,7 @@ const Projects = () => {
       description: 'A Pizza Shop Website using React.js for the front-end and integrated it with a MongoDB database.',
       technologies: [
         { label: 'React', icon: 'react', color: 'blue' },
-        { label: 'Node', icon: 'nodejs', color: 'blue' },
+        { label: 'NodeJS', icon: 'nodejs', color: 'blue' },
         { label: 'MongoDB', icon: 'mongodb', color: 'blue' },
       ],
     },
@@ -65,9 +65,9 @@ const Projects = () => {
       imageSrc: jediGamePng,
       description: 'A survival game where the player reflects blaster shots with their lightsaber.',
       technologies: [
-        { label: 'HTML', icon: 'html5', color: 'blue' },
+        { label: 'HTML5', icon: 'html5', color: 'blue' },
         { label: 'JavaScript', icon: 'javascript', color: 'blue' },
-        { label: 'CSS', icon: 'css3', color: 'blue' },
+        { label: 'CSS3', icon: 'css3', color: 'blue' },
         { label: 'HTML5 Canvas API', icon: 'html5', color: 'blue' },
       ],
     },
@@ -100,8 +100,8 @@ const Projects = () => {
                     <div key={idx} className={`mx-1 ${foundSkill.name.toLowerCase()}`}>
                       <img
                         src={`https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/${foundSkill.icon}`}
-                        width="24"
-                        height="24"
+                        width="36"
+                        height="36"
                         alt={foundSkill.name}
                         title={foundSkill.name}
                       />
