@@ -121,7 +121,7 @@ const Skills = () => {
         </a>
         <a href="https://expressjs.com/" target="_blank" rel="noreferrer">
           <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/express-colored.svg"
+            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/express.svg"
             width="64"
             height="64"
             alt="Express"
