@@ -9,7 +9,7 @@ const Projects = () => {
     {
       name: 'Monster Pet Adoption',
       githubLink: 'https://github.com/JoshHutchison/MonsterAdoption',
-      liveLink: '',
+      liveLink: 'https://github.com/JoshHutchison/MonsterAdoption',
       imageSrc: monsterAdoptionGif,
       description: 'A Monster Pet Adoption Website, presenting various monsters to be adopted.',
       technologies: [
@@ -21,7 +21,7 @@ const Projects = () => {
     {
       name: 'Gaming Deals',
       githubLink: 'https://github.com/JoshHutchison/GamingDeals',
-      liveLink: '',
+      liveLink: 'https://github.com/JoshHutchison/GamingDeals',
       imageSrc: gamingDealsGif,
       description: 'A Gaming Deals Website, offering a comprehensive list of gaming discounts and deals from various sources.',
       technologies: [
@@ -35,7 +35,7 @@ const Projects = () => {
     {
       name: 'Pizza Shop',
       githubLink: 'https://github.com/JoshHutchison/Pizza-HAUS',
-      liveLink: 'https://pizzahaus.netlify.app/',
+      liveLink: 'https://github.com/JoshHutchison/Pizza-HAUS',
       imageSrc: mernPizzaGif,
       description: 'A Pizza Shop Website using React.js for the front-end and integrated it with a MongoDB database.',
       technologies: [
@@ -111,16 +111,12 @@ const Projects = () => {
               <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                 Github
               </a>
-              {project.liveLink && (
-                <>
-                  <span>&nbsp;</span>
-                  <p>|</p>
-                  <span>&nbsp;</span>
-                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                    Live
-                  </a>
-                </>
-              )}
+              <span>&nbsp;</span>
+              <p>|</p>
+              <span>&nbsp;</span>
+              <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                Live
+              </a>
             </div>
           </div>
         ))}

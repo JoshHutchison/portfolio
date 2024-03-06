@@ -1,205 +1,66 @@
-const Skills = () => {  
+import { useEffect } from 'react';
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
+
+const Skills = () => {
+  const skills = [
+    { name: 'JavaScript', link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', icon: 'javascript-colored.svg' },
+    { name: 'Python', link: 'https://www.python.org/', icon: 'python-colored.svg' },
+    { name: 'CSharp', link: 'https://docs.microsoft.com/en-us/dotnet/csharp/', icon: 'csharp-colored.svg' },
+    { name: 'Git', link: 'https://git-scm.com/', icon: 'git-colored.svg' },
+    { name: 'Java', link: 'https://www.oracle.com/java/', icon: 'java-colored.svg' },
+    { name: 'HTML5', link: 'https://developer.mozilla.org/en-US/docs/Glossary/HTML5', icon: 'html5-colored.svg' },
+    { name: 'React', link: 'https://reactjs.org/', icon: 'react-colored.svg' },
+    { name: 'CSS3', link: 'https://www.w3.org/TR/CSS/#css', icon: 'css3-colored.svg' },
+    { name: 'TailwindCSS', link: 'https://tailwindcss.com/', icon: 'tailwindcss-colored.svg' },
+    { name: 'Bootstrap', link: 'https://getbootstrap.com/', icon: 'bootstrap-colored.svg' },
+    { name: 'Vite', link: 'https://vitejs.dev/', icon: 'vite-colored.svg' },
+    { name: 'NodeJS', link: 'https://nodejs.org/en/', icon: 'nodejs-colored.svg' },
+    { name: 'Express', link: 'https://expressjs.com/', icon: 'express.svg' },
+    { name: 'Oracle', link: 'https://www.oracle.com/uk/index.html', icon: 'oracle-colored.svg' },
+    { name: 'MongoDB', link: 'https://www.mongodb.com/', icon: 'mongodb-colored.svg' },
+    { name: 'PostgreSQL', link: 'https://www.postgresql.org/', icon: 'postgresql-colored.svg' },
+    { name: 'Django', link: 'https://www.djangoproject.com/', icon: 'django-colored.svg' },
+    { name: 'AWS', link: 'https://aws.amazon.com', icon: 'aws-colored.svg' },
+    { name: 'Docker', link: 'https://www.docker.com/', icon: 'docker-colored.svg' },
+    { name: 'Linux', link: 'https://www.linux.org', icon: 'linux-colored.svg' },
+    { name: 'MacOS', link: 'https://apple.com', icon: 'macos.svg' },
+  ];
+  useEffect(() => {
+    // Initialize the tooltips for each skill
+    
+
+    skills.forEach((skill) => {
+      tippy(`.${skill.name.toLowerCase()}`, {
+        content: skill.name,
+        delay: [5, 5], // [showDelay, hideDelay] in milliseconds
+      });
+    });
+  }, []);
 
   return (
     <div
       id="skills"
-      className="flex flex-col justify-center flex-row items-center mb-24 "
+      className="flex flex-col justify-center flex-row items-center mb-24"
     >
       <div className="text-white text-4xl">Skills</div>
       <div className="flex flex-wrap justify-center items-center gap-1 mt-2 w-3/5">
-        <a
-          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-          target="_blank"
-          rel="noreferrer"
-          title="Javascript"
-        >
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg"
-            width="64"
-            height="64"
-            alt="JavaScript"
-          />
-        </a>
-        <a href="https://www.python.org/" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg"
-            width="64"
-            height="64"
-            alt="Python"
-          />
-        </a>
-        <a
-          href="https://docs.microsoft.com/en-us/dotnet/csharp/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/csharp-colored.svg"
-            width="64"
-            height="64"
-            alt="C#"
-          />
-        </a>
-        <a href="https://git-scm.com/" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/git-colored.svg"
-            width="64"
-            height="64"
-            alt="Git"
-          />
-        </a>
-        <a href="https://www.oracle.com/java/" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg"
-            width="64"
-            height="64"
-            alt="Java"
-          />
-        </a>
-        <a
-          href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg"
-            width="64"
-            height="64"
-            alt="HTML5"
-          />
-        </a>
-        <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/react-colored.svg"
-            width="64"
-            height="64"
-            alt="React"
-          />
-        </a>
-        <a
-          href="https://www.w3.org/TR/CSS/#css"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg"
-            width="64"
-            height="64"
-            alt="CSS3"
-          />
-        </a>
-        <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/tailwindcss-colored.svg"
-            width="64"
-            height="64"
-            alt="TailwindCSS"
-          />
-        </a>
-        <a href="https://getbootstrap.com/" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/bootstrap-colored.svg"
-            width="64"
-            height="64"
-            alt="Bootstrap"
-          />
-        </a>
-        <a href="https://vitejs.dev/" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/vite-colored.svg"
-            width="64"
-            height="64"
-            alt="Vite"
-          />
-        </a>
-        <a href="https://nodejs.org/en/" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/nodejs-colored.svg"
-            width="64"
-            height="64"
-            alt="NodeJS"
-          />
-        </a>
-        <a href="https://expressjs.com/" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/express.svg"
-            width="64"
-            height="64"
-            alt="Express"
-          />
-        </a>
-        <a
-          href="https://www.oracle.com/uk/index.html"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/oracle-colored.svg"
-            width="64"
-            height="64"
-            alt="Oracle"
-          />
-        </a>
-        <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mongodb-colored.svg"
-            width="64"
-            height="64"
-            alt="MongoDB"
-          />
-        </a>
-        <a href="https://www.postgresql.org/" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/postgresql-colored.svg"
-            width="64"
-            height="64"
-            alt="PostgreSQL"
-          />
-        </a>
-        <a
-          href="https://www.djangoproject.com/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/django-colored.svg"
-            width="64"
-            height="64"
-            alt="Django"
-          />
-        </a>
-        <a href="https://aws.amazon.com" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/aws-colored.svg"
-            width="64"
-            height="64"
-            alt="Amazon Web Services"
-          />
-        </a>
-        <a href="https://www.docker.com/" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/docker-colored.svg"
-            width="64"
-            height="64"
-            alt="Docker"
-          />
-        </a>
-        <a href="https://www.linux.org" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/linux-colored.svg"
-            width="64"
-            height="64"
-            alt="Linux"
-          />
-        </a>
-        <a href="https://apple.com" target="_blank" rel="noreferrer">
-          <img
-            src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/macos-colored.svg"
-            width="64"
-            height="64"
-            alt="MacOS"
-          />
-        </a>
+        {skills.map((skill) => (
+          <a
+            key={skill.name}
+            href={skill.link}
+            target="_blank"
+            rel="noreferrer"
+            className={skill.name.toLowerCase()}
+          >
+            <img
+              src={`https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/${skill.icon}`}
+              width="64"
+              height="64"
+              alt={skill.name}
+            />
+          </a>
+        ))}
       </div>
     </div>
   );

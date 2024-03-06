@@ -19,7 +19,7 @@ const Profile = () => {
                   <p className="text-xl font-medium tracking-tight text-white md:text-3xl lg:text-6xl">
                     Crafting exceptional solutions through code mastery
                   </p>
-                  <p className="max-w-xl mt-4 text-base tracking-tight text-gray-600">
+                  <p className="max-w-xl mt-4 text-base tracking-tight text-gray-300">
                     Hey there, I'm Josh 👋, a seasoned software developer with a
                     knack for problem-solving and a background in electronic
                     engineering. My journey into software began in roles
@@ -28,7 +28,7 @@ const Profile = () => {
                     set in Java, Python, and Web Development over the past 5
                     years.
                   </p>
-                  <p className="max-w-xl mt-4 text-base tracking-tight text-gray-600">
+                  <p className="max-w-xl mt-4 text-base tracking-tight text-gray-300">
                     Beyond coding, my interests lie in video games, biking, and
                     snowboarding. These passions provide a refreshing break and
                     often infuse my problem-solving approach with creativity and
@@ -49,7 +49,7 @@ const Profile = () => {
                       <a
                         href="https://www.linkedin.com/in/josh-g-hutchison/"
                         target="_blank"
-                        className="text-sm text-gray-500 hover:text-blue-600"
+                        className="text-sm text-gray-300 hover:text-blue-600"
                       >
                         <FontAwesomeIcon
                           icon={faLinkedin}
@@ -63,7 +63,7 @@ const Profile = () => {
                       <a
                         href="https://github.com/JoshHutchison"
                         target="_blank"
-                        className="text-sm text-gray-500 hover:text-blue-600"
+                        className="text-sm text-gray-300 hover:text-blue-600"
                       >
                         <FontAwesomeIcon
                           icon={faGithub}
@@ -75,7 +75,7 @@ const Profile = () => {
                     </div>
                     <div className="px-5 py-2">
                     <a
-                  className="text-sm text-gray-500 hover:text-blue-600"
+                  className="text-sm text-gray-300 hover:text-blue-600"
                   href="/JoshHutchison.pdf"
                   tager="_blank"
                   download
