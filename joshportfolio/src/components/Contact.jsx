@@ -1,50 +1,96 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
+  const containerVariants = {
+    hidden: { 
+      x: 100,
+      opacity: 0 
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        when: "beforeChildren",
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      x: 50,
+      opacity: 0 
+    },
+    visible: {
+      x: 0,
+      opacity: 1
+    }
+  };
+
   return (
-    <footer id='contact' className="bg-gray-800">
-      <div className="px-4 py-12 mx-auto overflow-hidden max-w-7xl sm:px-6 lg:px-8">
-        <div className="flex justify-center text-gray-300 text-3xl">Contact me</div>
-        <div className="flex justify-center mt-8 space-x-6">
-          <span className="inline-flex justify-center w-full gap-3 m-auto md:justify-start md:w-auto">
-            <div className="px-5 py-2">
-              <a
-                href="https://www.linkedin.com/in/josh-g-hutchison/"
-                target="_blank"
-                className="text-sm text-gray-300 hover:text-blue-600"
-              >
-                <FontAwesomeIcon icon={faLinkedin} size="xl" className="px-2" />
-                LinkedIn
-              </a>
-            </div>
-            <div className="px-5 py-2">
-              <a
-                href="https://github.com/JoshHutchison"
-                target="_blank"
-                className="text-sm text-gray-300 hover:text-blue-600"
-              >
-                <FontAwesomeIcon icon={faGithub} size="xl" className="px-2"/>
-                Github
-              </a>
-            </div>
-            <div className="px-5 py-2">
-            <a href="mailto:joshhutchison@hotmail.com"
-              className="text-sm text-gray-300 hover:text-blue-600"
-              >
-                <FontAwesomeIcon icon={faEnvelope} size="xl" className="px-2"/>
-                Email</a>
-            </div>
-          </span>
+    <section id="contact" className="relative flex items-center w-full h-screen bg-gray-900">
+      <div className="relative items-center w-full px-5 py-24 mx-auto md:px-12 md:px-16 max-w-7xl">
+        <div className="relative flex-col items-start m-auto align-middle">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-24">
+            <div></div>
+            <motion.div 
+              className="relative items-center gap-12 m-auto md:inline-flex"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={containerVariants}
+            >
+              <div className="max-w-xl text-center md:text-left">
+                <h2 
+                  className="text-4xl text-white mb-8"
+                  variants={itemVariants}
+                >
+                  Contact Me
+                </h2>
+                <div className="flex flex-col gap-4">
+                  <motion.a 
+                    href="https://www.linkedin.com/in/josh-g-hutchison/" 
+                    target="_blank" 
+                    className="text-gray-300 hover:text-blue-600"
+                    variants={itemVariants}
+                  >
+                    <FontAwesomeIcon icon={faLinkedin} size="xl" className="w-8" />
+                    LinkedIn
+                  </motion.a>
+                  <motion.a 
+                    href="https://github.com/JoshHutchison" 
+                    target="_blank" 
+                    className="text-gray-300 hover:text-blue-600"
+                    variants={itemVariants}
+                  >
+                    <FontAwesomeIcon icon={faGithub} size="xl" className="w-8" />
+                    Github
+                  </motion.a>
+                  <motion.a 
+                    href="mailto:joshhutchison@hotmail.com" 
+                    className="text-gray-300 hover:text-blue-600"
+                    variants={itemVariants}
+                  >
+                    <FontAwesomeIcon icon={faEnvelope} size="xl" className="w-8" />
+                    Email
+                  </motion.a>
+                </div>
+                <motion.p 
+                  className="mt-8 text-sm text-gray-500"
+                  variants={itemVariants}
+                >
+                  Copyright © 2023 Josh Hutchison
+                </motion.p>
+              </div>
+            </motion.div>
+          </div>
         </div>
-        <p className="mt-8 text-center">
-          <span className="mx-auto mt-2 text-sm text-gray-500">
-            Copyright © 2023 Josh Hutchison
-          </span>
-        </p>
       </div>
-    </footer>
+    </section>
   );
 };
 

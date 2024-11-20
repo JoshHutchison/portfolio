@@ -11,13 +11,14 @@ const Profile = () => {
         <div className="relative flex-col items-start m-auto align-middle">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-24">
             <div className="relative items-center gap-12 m-auto md:inline-flex">
-              <div className="max-w-xl text-center md:text-left">
+              <div className="max-w-xl text-center md:text-left">              
+                
                 <div>
                   <p className="text-xl font-medium tracking-tight text-white md:text-2xl">
                     Josh Hutchison | Full Stack Developer
                   </p>
                   <p className="text-xl font-medium tracking-tight text-white md:text-3xl lg:text-6xl">
-                    Crafting exceptional solutions through code mastery
+                    
                   </p>
                   <p className="max-w-xl mt-4 text-base tracking-tight text-gray-300">
                     Hey there, I'm Josh 👋, a seasoned software developer with a
@@ -93,13 +94,7 @@ const Profile = () => {
                 
               </div>
             </div>
-            <div className="order-first block w-full mt-12 aspect-square sm:mt-0 sm:order-first">
-              <img
-                className="object-cover object-center w-full mx-auto bg-gray-300 sm:ml-auto"
-                alt="hero"
-                src={profilePic}
-              />
-            </div>
+            
           </div>
         </div>
       </div>

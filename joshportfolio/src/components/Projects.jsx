@@ -74,63 +74,65 @@ const Projects = () => {
   ];
 
   return (
-    <div id='apps' className="text-white my-4 text-center">
-      <h2 className="text-4xl mb-4">Projects</h2>
-      <div className="flex flex-wrap justify-center items-start gap-4">
-        {projectData.map((project, index) => (
-          <div key={index} className="flex flex-col items-center ">
-            <h3 className="mb-2 text-xl">{project.name}</h3>
-
-            <div className="w-96 h-60 relative">
-              <img
-                src={project.imageSrc}
-                alt={project.name}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 bg-black bg-opacity-80 hover:opacity-100">
-                <p className="text-white text-center">{project.description}</p>
+    <section id="apps" className="relative flex items-center w-full bg-black">
+      <div className="relative items-center w-full px-5 py-24 mx-auto md:px-12 md:px-16 max-w-7xl">
+        <div className="relative flex-col items-start m-auto align-middle">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-24">
+            <div className="relative items-center gap-12 m-auto md:inline-flex">
+              <div className="max-w-xl text-center md:text-left">
+                <h2 className="text-4xl text-white mb-8">Projects</h2>
+                <div className="flex flex-col gap-8">
+                  {projectData.map((project, index) => (
+                    <div key={index} className="flex flex-col items-start">
+                      <h3 className="text-xl text-white mb-2">{project.name}</h3>
+                      <div className="w-full relative">
+                        <img
+                          src={project.imageSrc}
+                          alt={project.name}
+                          className="w-full h-48 object-cover rounded-lg"
+                        />
+                        <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 bg-black bg-opacity-80 hover:opacity-100 rounded-lg">
+                          <p className="text-white text-center p-4">{project.description}</p>
+                        </div>
+                      </div>
+                      <div className="flex mt-2 gap-2">
+                        {project.technologies.map((tech, idx) => {
+                          const foundSkill = skills.find((skill) => skill.name === tech.label);
+                          if (foundSkill) {
+                            return (
+                              <div key={idx} className={`${foundSkill.name.toLowerCase()}`}>
+                                <img
+                                  src={`https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/${foundSkill.icon}`}
+                                  width="24"
+                                  height="24"
+                                  alt={foundSkill.name}
+                                  title={foundSkill.name}
+                                />
+                              </div>
+                            );
+                          }
+                          return null;
+                        })}
+                      </div>
+                      <div className="flex gap-4 mt-2">
+                        <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-600">
+                          Github
+                        </a>
+                        {project.liveLink && (
+                          <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-600">
+                            Live Demo
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-
-            <div className="flex mt-2">
-              {project.technologies.map((tech, idx) => {
-                const foundSkill = skills.find((skill) => skill.name === tech.label);
-                if (foundSkill) {
-                  return (
-                    <div key={idx} className={`mx-1 ${foundSkill.name.toLowerCase()}`}>
-                      <img
-                        src={`https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/${foundSkill.icon}`}
-                        width="36"
-                        height="36"
-                        alt={foundSkill.name}
-                        title={foundSkill.name}
-                      />
-                    </div>
-                  );
-                }
-                return null;
-              })}
-            </div>
-
-            <div className="flex justify-center gap-2 mb-2">
-              <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                Github
-              </a>
-              {project.liveLink && (
-                <>
-                  <span>&nbsp;</span>
-                  <p>|</p>
-                  <span>&nbsp;</span>
-                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                    Live
-                  </a>
-                </>
-              )}
-            </div>
           </div>
-        ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 
@@ -29,44 +30,87 @@ const skills = [
 ];
 
 const Skills = () => {
-  
   useEffect(() => {
-    // Initialize the tooltips for each skill
-    
-
     skills.forEach((skill) => {
       tippy(`.${skill.name.toLowerCase()}`, {
         content: skill.name,
-        delay: [5, 5], // [showDelay, hideDelay] in milliseconds
+        delay: [5, 5],
       });
     });
   }, []);
 
+  const containerVariants = {
+    hidden: { 
+      x: 100,
+      opacity: 0 
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      x: 50,
+      opacity: 0 
+    },
+    visible: {
+      x: 0,
+      opacity: 1
+    }
+  };
+
   return (
-    <div
-      id="skills"
-      className="flex flex-col justify-center flex-row items-center mb-24"
-    >
-      <div className="text-white text-4xl">Skills</div>
-      <div className="flex flex-wrap justify-center items-center gap-1 mt-2 w-3/5">
-        {skills.map((skill) => (
-          <a
-            key={skill.name}
-            href={skill.link}
-            target="_blank"
-            rel="noreferrer"
-            className={skill.name.toLowerCase()}
-          >
-            <img
-              src={`https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/${skill.icon}`}
-              width="64"
-              height="64"
-              alt={skill.name}
-            />
-          </a>
-        ))}
+    <section id="skills" className="relative flex items-center w-full h-screen bg-gray-900">
+      <div className="relative items-center w-full px-5 py-24 mx-auto md:px-12 md:px-16 max-w-7xl">
+        <div className="relative flex-col items-start m-auto align-middle">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-24">
+            <div></div>
+            <motion.div 
+              className="relative items-center gap-12 m-auto md:inline-flex"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={containerVariants}
+            >
+              <div className="max-w-xl text-center md:text-left">
+                <h2 
+                  className="text-4xl text-white mb-8"
+                  variants={itemVariants}
+                >
+                  Skills
+                </h2>
+                <div className="flex flex-wrap gap-4">
+                  {skills.map((skill) => (
+                    <motion.a
+                      key={skill.name}
+                      href={skill.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={skill.name.toLowerCase()}
+                      variants={itemVariants}
+                    >
+                      <img
+                        src={`https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/${skill.icon}`}
+                        width="48"
+                        height="48"
+                        alt={skill.name}
+                      />
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
