@@ -32,9 +32,9 @@ function WelcomeText() {
       // Update text based on scroll progress
       if (progress < 0.2) {
         setText("Hi, welcome to my page");
-      } else if (progress < 0.65) {
+      } else if (progress < 0.5) {
         setText("Check out my skills");
-      } else if (progress < 0.8) {
+      } else if (progress < 0.9) {
         setText("Here's my experience");
       } else {
         setText("Let's connect!");
@@ -84,7 +84,7 @@ function Model() {
     const handleScroll = () => {
       const progress = parseFloat(document.documentElement.style.getPropertyValue('--scroll-progress') || 0);
       const xPosition = Math.cos(progress * Math.PI * 3) * 3;
-      
+      console.log(progress);
       // Calculate rotation based on scroll progress
       let yRotation = 0;
       // if (progress < 0.5) {
@@ -100,18 +100,27 @@ function Model() {
       // }
 
       // Determine animation based on scroll progress
-      if (progress < 0.2) {
-        setCurrentAnimation('waving');
+      if (progress < 0.01) {
+        setCurrentAnimation('idle');
         setRotation([0, Math.PI * -0.1, 0])
-      } else if (progress < 0.65) {
+      } else if (progress < 0.25) {
+        setCurrentAnimation('running');
+        setRotation([0, Math.PI * -0.4, 0]);
+      } else if (progress < 0.4) {
+        setCurrentAnimation('dance');
+        setRotation([0, Math.PI * 0.4, 0]);
+      } else if (progress < 0.5) {
         setCurrentAnimation('running');
         setRotation([0, Math.PI * 0.4, 0]);
-      } else if (progress < 0.8) {
+      } else if (progress < 0.7) {
         setCurrentAnimation('pointing');
         setRotation([0, Math.PI * -0.4, 0]);
-      } else {
+      } else if (progress < 0.99) {
         setCurrentAnimation('running');
-        setRotation([0, Math.PI * 0.4, 0]);
+        setRotation([0, Math.PI * -0.4, 0]);
+      } else {
+        setCurrentAnimation('callme');
+        setRotation([0, Math.PI * 0.1, 0]);
       }
 
 
