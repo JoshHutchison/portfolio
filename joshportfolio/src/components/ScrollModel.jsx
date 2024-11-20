@@ -174,15 +174,44 @@ function DOMLoader() {
   )
 }
 
+// Custom hook to detect mobile screens
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return isMobile;
+}
+
 export default function ScrollModel() {
   const [started, setStarted] = useState(false)
   const { active, progress } = useProgress()
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     if (progress === 100) {
       setTimeout(() => setStarted(true), 500)
     }
   }, [progress])
+
+  // Don't render anything on mobile
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <div style={{ 
@@ -193,6 +222,7 @@ export default function ScrollModel() {
       height: '100vh',
       pointerEvents: 'none',
       zIndex: 2,
+      display: isMobile ? 'none' : 'block', // Additional safety measure
     }}>
       <Canvas 
         style={{ 
