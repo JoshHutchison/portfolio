@@ -3,6 +3,8 @@ import { useFrame } from '@react-three/fiber'
 import { useRef, useState, useEffect } from 'react'
 import { Text } from '@react-three/drei'
 import { Josh } from './Model'
+import { useProgress, Html } from '@react-three/drei'
+import { Suspense } from 'react'
 
 function WelcomeText() {
   const textRef = useRef()
@@ -144,7 +146,44 @@ function Model() {
   );
 }
 
+// This loader is used outside Canvas
+function DOMLoader() {
+  const { progress } = useProgress()
+  
+  return (
+    <div 
+      className="flex flex-col items-center justify-center text-white"
+      style={{
+        transform: 'translateX(25%)',
+        position: 'relative',
+        left: '10%'
+      }}
+    >
+      <div className="relative w-24 h-24">
+        <div className="absolute top-0 left-0 w-full h-full border-4 border-blue-500/20 rounded-full"></div>
+        <div 
+          className="absolute top-0 left-0 w-full h-full border-4 border-t-blue-500 rounded-full animate-spin"
+          style={{
+            animationDuration: '1.5s',
+          }}
+        ></div>
+      </div>
+      <div className="mt-4 text-lg font-medium">Loading...</div>
+      <div className="text-sm text-gray-400">{progress.toFixed(0)}%</div>
+    </div>
+  )
+}
+
 export default function ScrollModel() {
+  const [started, setStarted] = useState(false)
+  const { active, progress } = useProgress()
+
+  useEffect(() => {
+    if (progress === 100) {
+      setTimeout(() => setStarted(true), 500)
+    }
+  }, [progress])
+
   return (
     <div style={{ 
       position: 'fixed',
@@ -156,16 +195,41 @@ export default function ScrollModel() {
       zIndex: 2,
     }}>
       <Canvas 
-        style={{ height: '100vh' }}
+        style={{ 
+          height: '100vh',
+          opacity: started ? 1 : 0,
+          transition: 'opacity 1s ease-in-out'
+        }}
         camera={{ position: [0, 0, 10], fov: 50 }}
         eventSource={document.body}
         eventPrefix="page"
       >
         <ambientLight intensity={1} />
         <pointLight position={[10, 10, 10]} />
-        <Model />
-        <WelcomeText />
+        <Suspense fallback={null}>
+          <Model />
+          <WelcomeText />
+        </Suspense>
       </Canvas>
+      {!started && (
+        <div 
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'black',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'opacity 1s ease-in-out',
+            opacity: active ? 1 : 0,
+          }}
+        >
+          <DOMLoader />
+        </div>
+      )}
     </div>
   )
 } 
