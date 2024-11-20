@@ -88,7 +88,8 @@ function Model() {
       // if (progress < 0.5) {
       //   // Second section: rotate right 90 degrees
       //   yRotation = Math.PI * -0.5; // -90 degrees
-      // } else if (progress < 0.75) {
+      // } 
+      // else if (progress < 0.75) {
       //   // Third section: rotate left 90 degrees
       //   yRotation = Math.PI * 0.5; // 90 degrees
       // } else {
@@ -99,13 +100,18 @@ function Model() {
       // Determine animation based on scroll progress
       if (progress < 0.2) {
         setCurrentAnimation('waving');
+        setRotation([0, Math.PI * -0.1, 0])
       } else if (progress < 0.65) {
         setCurrentAnimation('running');
+        setRotation([0, Math.PI * 0.4, 0]);
       } else if (progress < 0.8) {
         setCurrentAnimation('pointing');
+        setRotation([0, Math.PI * -0.4, 0]);
       } else {
         setCurrentAnimation('running');
+        setRotation([0, Math.PI * 0.4, 0]);
       }
+
 
       setPosition({
         x: xPosition,
@@ -114,13 +120,13 @@ function Model() {
       });
       
       // Smoothly interpolate rotation
-      setRotation(prev => {
-        const targetRotation = [0, yRotation, 0];
-        return targetRotation.map((target, i) => {
-          const current = prev[i];
-          return current + (target - current) * 0.1;
-        });
-      });
+      // setRotation(prev => {
+      //   const targetRotation = [0, yRotation, 0];
+      //   return targetRotation.map((target, i) => {
+      //     const current = prev[i];
+      //     return current + (target - current) * 0.1;
+      //   });
+      // });
     };
 
     const container = document.querySelector('.scroll-container');
