@@ -71,7 +71,7 @@ const Companies = () => {
   ];
 
   return (
-    <section id="experience" className="relative flex items-center w-full bg-black">
+    <section id="experience" className="relative flex items-center w-full bg-blue-900">
       <div className="relative items-center w-full px-5 py-24 mx-auto md:px-12 md:px-16 max-w-7xl">
         <div className="relative flex-col items-start m-auto align-middle">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-24">

@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollToPlugin)
 const navigation = [
   { name: 'Home', href: '#home', current: false },
   { name: 'Skills', href: '#skills', current: false },
-  { name: 'Projects', href: '#apps', current: false },
+  { name: 'Experience', href: '#apps', current: false },
   { name: 'Contact Me', href: '#contact', current: false },
 ]
 

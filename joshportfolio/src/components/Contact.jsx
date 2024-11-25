@@ -71,7 +71,7 @@ const Contact = () => {
                     Github
                   </motion.a>
                   <motion.a 
-                    href="mailto:joshhutchison@hotmail.com" 
+                    href="mailto:josh.g.hutchison@gmail.com" 
                     className="text-gray-300 hover:text-blue-600"
                     variants={itemVariants}
                   >
@@ -83,7 +83,7 @@ const Contact = () => {
                   className="mt-8 text-sm text-gray-500"
                   variants={itemVariants}
                 >
-                  Copyright © 2023 Josh Hutchison
+                  Copyright © 2024 Josh Hutchison
                 </motion.p>
               </div>
             </motion.div>
